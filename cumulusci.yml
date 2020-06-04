@@ -1,0 +1,19 @@
+minimum_cumulusci_version: '3.12.2'
+project:
+    name: CumulusCI
+    package:
+        name:  CITest
+        api_version: '48.0'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/CumulusCI/tests
+            options:
+                outputdir: robot/CumulusCI/results
+
+    robot_testdoc:
+        options:
+            path: robot/CumulusCI/tests
+            output: robot/CumulusCI/doc/CumulusCI_tests.html
