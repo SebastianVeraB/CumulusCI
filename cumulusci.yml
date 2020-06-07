@@ -17,3 +17,11 @@ tasks:
         options:
             path: robot/CumulusCI/tests
             output: robot/CumulusCI/doc/CumulusCI_tests.html
+flows:
+    config_qa:
+        steps:
+            3:
+                task: execute_anon
+                options:
+                    path: automation/qaDataset.cls
+                       
