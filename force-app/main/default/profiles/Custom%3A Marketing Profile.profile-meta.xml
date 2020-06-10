@@ -14,6 +14,13 @@
     <layoutAssignments>
         <layout>Account-Account %28Marketing%29 Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Mes__c-Mes Layout</layout>
+    </layoutAssignments>
+    <tabVisibilities>
+        <tab>Mes__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
