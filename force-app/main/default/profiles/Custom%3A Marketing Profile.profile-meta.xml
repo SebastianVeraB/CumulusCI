@@ -83,10 +83,17 @@
         <layout>Gasto__c-Gasto Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Ingreso__c-Ingreso Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Mes__c-Mes Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
         <tab>Gasto__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Ingreso__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
