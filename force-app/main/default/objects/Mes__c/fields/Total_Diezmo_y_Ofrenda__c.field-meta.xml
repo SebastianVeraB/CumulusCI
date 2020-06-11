@@ -7,7 +7,7 @@
     <summaryFilterItems>
         <field>Gasto__c.Categoria__c</field>
         <operation>equals</operation>
-        <value>Diezmo y Ofrendas</value>
+        <value>Diezmo, Ofrendas</value>
     </summaryFilterItems>
     <summaryForeignKey>Gasto__c.Mes__c</summaryForeignKey>
     <summaryOperation>sum</summaryOperation>

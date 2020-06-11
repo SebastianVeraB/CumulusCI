@@ -11,9 +11,9 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Diezmo y Ofrendas</fullName>
+                <fullName>Diezmo</fullName>
                 <default>true</default>
-                <label>Diezmo y Ofrendas</label>
+                <label>Diezmo</label>
             </value>
             <value>
                 <fullName>Transporte</fullName>
@@ -59,6 +59,11 @@
                 <fullName>Otros</fullName>
                 <default>false</default>
                 <label>Otros</label>
+            </value>
+            <value>
+                <fullName>Ofrendas</fullName>
+                <default>false</default>
+                <label>Ofrendas</label>
             </value>
         </valueSetDefinition>
     </valueSet>
