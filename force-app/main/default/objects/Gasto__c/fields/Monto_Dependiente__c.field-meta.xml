@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monto_Dependiente__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  ISPICKVAL(Categoria__c, &#39;Diezmo&#39;) ,  Mes__r.Ingresos_Totales__c * 0.1,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Monto Dependiente</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>
