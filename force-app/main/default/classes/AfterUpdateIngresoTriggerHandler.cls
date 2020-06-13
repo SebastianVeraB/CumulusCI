@@ -61,7 +61,7 @@ public with sharing class AfterUpdateIngresoTriggerHandler {
                 updateDiezmoMonto(mes);
             }
         }
-        update DiezmosToUpdate;
+        upsert DiezmosToUpdate;
     }
 
     private void updateDiezmoMonto(Mes__c mes) 
@@ -75,12 +75,17 @@ public with sharing class AfterUpdateIngresoTriggerHandler {
         }
 
         diezmo.Monto__c = acumulatedMonto * 0.1;
-        DiezmosToUpdate.add(diezmo);
+        DiezmosToUpdate.add( diezmo );
     }
 
-    private boolean diezmoNotPaid(Mes__c mes) 
+    private boolean diezmoNotPaid( Mes__c mes ) 
     {
-        return !mes.Gastos__r[0].Pago__c;
+        if( mes.Gastos__r.size() > 0 ) 
+        {
+            return !mes.Gastos__r[0].Pago__c;
+        }
+        else return false;
+       
 
     }
     
