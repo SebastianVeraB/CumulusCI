@@ -32,12 +32,36 @@
         <processMetadataValues>
             <name>originalFormula</name>
             <value>
-                <stringValue>[Mes__c].Ingresos_Totales__c * 0.1</stringValue>
+                <stringValue>($CustomMetadata.Sueldo__mdt.Sueldo_Laura.Monto__c  + $CustomMetadata.Sueldo__mdt.Sueldo_Seba.Monto__c ) * 0.1</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_A3_7956359878</name>
+        <name>formula_2_myRule_1_A3_2063584654</name>
         <dataType>Currency</dataType>
-        <expression>{!myVariable_current.Ingresos_Totales__c} * 0.1</expression>
+        <expression>({!$CustomMetadata.Sueldo__mdt.Sueldo_Laura.Monto__c}  + {!$CustomMetadata.Sueldo__mdt.Sueldo_Seba.Monto__c} ) * 0.1</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>$CustomMetadata.Sueldo__mdt.Sueldo_Seba.Monto__c </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_3_myRule_1_A2_9020807942</name>
+        <dataType>Currency</dataType>
+        <expression>{!$CustomMetadata.Sueldo__mdt.Sueldo_Seba.Monto__c}</expression>
+        <scale>18</scale>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>$CustomMetadata.Sueldo__mdt.Sueldo_Laura.Monto__c </stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_4_myRule_1_A1_4968651847</name>
+        <dataType>Currency</dataType>
+        <expression>{!$CustomMetadata.Sueldo__mdt.Sueldo_Laura.Monto__c}</expression>
         <scale>18</scale>
     </formulas>
     <formulas>
@@ -45,7 +69,7 @@
         <dataType>Boolean</dataType>
         <expression>true</expression>
     </formulas>
-    <interviewLabel>Process_Mes-4_InterviewLabel</interviewLabel>
+    <interviewLabel>Process_Mes-2_InterviewLabel</interviewLabel>
     <label>Process Mes</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -138,12 +162,12 @@
             <processMetadataValues>
                 <name>rightHandSideType</name>
                 <value>
-                    <stringValue>Currency</stringValue>
+                    <stringValue>Formula</stringValue>
                 </value>
             </processMetadataValues>
             <field>Monto__c</field>
             <value>
-                <numberValue>36000.0</numberValue>
+                <elementReference>formula_4_myRule_1_A1_4968651847</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -244,12 +268,12 @@
             <processMetadataValues>
                 <name>rightHandSideType</name>
                 <value>
-                    <stringValue>Currency</stringValue>
+                    <stringValue>Formula</stringValue>
                 </value>
             </processMetadataValues>
             <field>Monto__c</field>
             <value>
-                <numberValue>103000.0</numberValue>
+                <elementReference>formula_3_myRule_1_A2_9020807942</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -388,7 +412,7 @@
             </processMetadataValues>
             <field>Monto__c</field>
             <value>
-                <elementReference>formula_2_myRule_1_A3_7956359878</elementReference>
+                <elementReference>formula_2_myRule_1_A3_2063584654</elementReference>
             </value>
         </inputAssignments>
         <object>Gasto__c</object>
