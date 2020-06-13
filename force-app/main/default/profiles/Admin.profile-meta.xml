@@ -205,11 +205,13 @@
         <field>Mes__c.Varios__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sueldo__mdt.Monto__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Gasto__c-Gasto Layout</layout>
@@ -219,6 +221,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Mes__c-Mes Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Sueldo__mdt-Sueldo Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
