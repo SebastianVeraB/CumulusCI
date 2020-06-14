@@ -28,6 +28,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Gasto__c.Disponible__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Gasto__c.Monto_Dependiente__c</field>
         <readable>true</readable>

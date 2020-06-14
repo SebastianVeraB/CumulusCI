@@ -156,7 +156,7 @@
     <gender>Masculine</gender>
     <label>Mes</label>
     <nameField>
-        <label>Periodo Name</label>
+        <label>Mes</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Meses</pluralLabel>

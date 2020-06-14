@@ -34,6 +34,10 @@
                 <behavior>Readonly</behavior>
                 <field>Monto_Dependiente__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Disponible__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
