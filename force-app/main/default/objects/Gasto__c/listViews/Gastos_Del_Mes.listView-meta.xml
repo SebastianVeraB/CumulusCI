@@ -4,7 +4,7 @@
     <columns>Categoria__c</columns>
     <columns>Monto__c</columns>
     <columns>Pago__c</columns>
-    <filterScope>Mine</filterScope>
+    <filterScope>Everything</filterScope>
     <filters>
         <field>CREATED_DATE</field>
         <operation>equals</operation>
