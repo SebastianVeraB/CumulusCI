@@ -5,5 +5,6 @@ public with sharing class myTestClass {
         String Test3;
         String Test4;
         String Test5;
+        String test6;
     }
 }
