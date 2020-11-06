@@ -7,5 +7,6 @@ public with sharing class myTestClass {
         String Test5;
         String test6;
         String Test7;
+        String Test8;
     }
 }
