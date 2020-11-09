@@ -4,4 +4,7 @@ public with sharing class myTestClass {
         String Test2;
         String Test3;
     }
+    
+    public void testingLabels() {
+    }
 }
