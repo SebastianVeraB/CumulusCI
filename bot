@@ -27,7 +27,7 @@ spin-out() {
 
 print-branch() {
    echo and my branch is
-    MyBranch=$(git branch)
+    MyBranch= ${GITHUB_REF##*/}
     echo $MyBranch
 }
 
