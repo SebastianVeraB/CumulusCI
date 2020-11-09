@@ -29,9 +29,9 @@ spin-out() {
 }
 
 print-branch() {
-   
+   echo and my branch is
     MyBranch=$(git branch | grep -e "^*" | cut -d' ' -f 2)
-    echo ${green} $MyBranch ${reset}
+    echo $MyBranch
 }
 
 pull-and-deploy() {
