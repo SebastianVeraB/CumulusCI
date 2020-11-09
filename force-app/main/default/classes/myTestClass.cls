@@ -11,4 +11,7 @@ public with sharing class myTestClass {
         String Test9;
         String Test10;
     }
+    
+    public void testingLabels() {
+    }
 }
