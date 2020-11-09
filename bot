@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-red=`tput setaf 1`
-green=`tput setaf 2`
-reset=`tput sgr0`
-bold=`tput bold`
+
 spinner()
 {
   spinner="-/|\\-/|\\"
@@ -30,7 +27,7 @@ spin-out() {
 
 print-branch() {
    echo and my branch is
-    MyBranch=$(git branch | grep -e "^*" | cut -d' ' -f 2)
+    MyBranch=$(git branch)
     echo $MyBranch
 }
 
