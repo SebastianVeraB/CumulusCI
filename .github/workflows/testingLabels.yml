@@ -28,10 +28,15 @@ jobs:
           mkdir sfdx-cli
           tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
           ./sfdx-cli/install
+          
+      - name: 'Authorize'
+        run: |
+          echo username value ${{ secrets.USERNAME }}
+          sfdx force:auth:jwt:grant --clientid=${{ secrets.CONSUMER_KEY }} --username=${{ secrets.USERNAME }} --jwtkeyfile server.key --setdefaultdevhubusername --setalias=hub-org
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: bash bot print-branch
+        run: sfdx force:source:deploy -p force-app/main/default
       
   # This workflow contains a single job called "build"
   build-doc:
