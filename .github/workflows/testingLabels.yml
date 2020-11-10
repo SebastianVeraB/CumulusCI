@@ -22,6 +22,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: 'Build and Deploy'
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+          mkdir sfdx-cli
+          tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+          ./sfdx-cli/install
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -55,9 +61,5 @@ jobs:
         shell: bash
         run: 
             TARGET_BRANCH=${GITHUB_BASE_REF}
-            if [ TARGET_BRANCH == "release" ]
-            then
-            echo "this is a release!"
-            fi
   
     
