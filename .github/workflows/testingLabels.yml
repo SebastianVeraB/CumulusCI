@@ -51,9 +51,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Extract branch name
-        shell: bash
-        run: echo "${github.ref}"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo “$GITHUB_CONTEXT”
 
   
     
