@@ -26,9 +26,14 @@ spin-out() {
 }
 
 print-branch() {
-   echo and my branch is
-    MyBranch= ${GITHUB_REF##*/}
-    echo $MyBranch
+echo Reserved for REPO_NAME=${GITHUB_REPOSITORY##*/}
+echo GITHUB_REF=${GITHUB_REF}
+echo EXTRACT_GITHUB_REF=${GITHUB_REF##*/}
+echo EXTRACT_GITHUB_REF_HEADS=$(echo ${GITHUB_REF#refs/heads/})
+
+cd $REPO_NAME
+git checkout ${GITHUB_REF##*/}
+git checkout $(echo ${GITHUB_REF#refs/heads/})
 }
 
 pull-and-deploy() {
