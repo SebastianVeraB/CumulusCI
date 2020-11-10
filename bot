@@ -30,7 +30,7 @@ print-branch() {
   if [ TARGET_BRANCH == "release" ]
   then
   echo "this is a release!"
-
+  fi
 }
 
 pull-and-deploy() {
