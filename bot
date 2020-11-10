@@ -27,9 +27,10 @@ spin-out() {
 
 print-branch() {
   TARGET_BRANCH=${GITHUB_BASE_REF}
-  if [ TARGET_BRANCH == release ]
+  if [ $TARGET_BRANCH = release ]
   then
   echo "this is a release!"
+  elsereturn -1
   fi
 }
 
