@@ -30,6 +30,8 @@ print-branch() {
   if [ TARGET_BRANCH == "release" ]
   then
   echo "this is a release!"
+  else 
+  return -1
   fi
 }
 
