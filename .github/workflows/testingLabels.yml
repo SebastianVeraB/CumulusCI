@@ -36,7 +36,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: sfdx force:source:deploy -p force-app/main/default
+        run: sfdx force:source:deploy -p force-app/main/default -u=${{ secrets.USERNAME }}
       
   # This workflow contains a single job called "build"
   build-doc:
