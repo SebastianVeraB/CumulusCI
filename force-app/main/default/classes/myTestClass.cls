@@ -14,4 +14,7 @@ public with sharing class myTestClass {
     
     public void testingLabels() {
     }
+    
+    public void testingLabels() {
+    }
 }
