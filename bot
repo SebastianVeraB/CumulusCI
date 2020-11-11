@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+
+spinner()
+{
+  spinner="-/|\\-/|\\"
+  while :
+  do
+    for i in `seq 0 7`
+    do
+      echo -n $"${spinner:$i:1}" 
+      echo -en $"\010"
+      sleep 0.1
+    done
+  done
+}
+
+spin() {
+ spinner &
+    SPIN_PID=$!
+    trap "kill -9 $SPIN_PID" `seq 0 15`
+}
+
+spin-out() {
+    kill -9 $SPIN_PID
+}
+
+print-branch() {
+  TARGET_BRANCH=${GITHUB_BASE_REF}
+  if [ $TARGET_BRANCH = release ]
+  then
+  echo "this is a release!"
+  elsereturn -1
+  fi
+}
+
+pull-and-deploy() {
+    echo ${green} $'\n*** PROCESS STARTED ***\n' ${reset}
+    MyBranch=$(git branch | grep -e "^*" | cut -d' ' -f 2)
+    echo ${bold}$'FETCHING CURRENT BRANCH...' ${reset}
+    spin;
+    git fetch origin $MyBranch
+    Data="$(git -C force-app/ diff --relative --name-only origin/$MyBranch | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
+    spin-out;
+    if [ -z "$Data" ]
+    then
+      echo ${bold} $'already up to date\n' ${reset}
+    else
+      echo ${bold} $'\nSTARTING GIT PULL...' ${reset}
+      spin;
+      git pull
+      spin-out;
+      echo ${bold} $'\nSTARTING ORG DEPLOY...' ${reset}
+      spin;
+      sfdx force:source:deploy -p $Data  
+      spin-out;
+    fi
+}
+
+"$@" 
