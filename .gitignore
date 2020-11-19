@@ -3,7 +3,7 @@
 .sfdx
 /src.orig
 /src
-
+.github
 # Python
 *.pyc
 __pycache__
