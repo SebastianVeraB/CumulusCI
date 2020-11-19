@@ -6,6 +6,7 @@ public with sharing class CreateContactTest {
       
       test.startTest();
       CreateContact.create('John', 'Doe');
+    
       test.stopTest();
 
       System.assertEquals('John Doe', [select Name from Contact Limit 1].Name);
