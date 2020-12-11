@@ -69,6 +69,8 @@ deploy-feature() {
     MyBranch=$(git branch | grep -e "^*" | cut -d' ' -f 2)
     spin;
     git checkout $1 && git pull && git checkout $master && git pull
+    if [ $? -eq 0 ]
+    then
     Data="$(git -C force-app/ diff --relative --name-only $master $1 | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
     spin-out;
     if [ -z "$Data" ]
@@ -82,6 +84,11 @@ deploy-feature() {
     sfdx force:source:deploy -p $Data  
     spin-out;
     fi
+    else
+    spin-out;
+    fi
+    
+    
 }
 
 "$@" 
