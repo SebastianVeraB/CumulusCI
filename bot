@@ -2,6 +2,9 @@
 red=`tput setaf 1`
 green=`tput setaf 2`
 reset=`tput sgr0`
+release="release"
+master="master"
+
 
 spinner()
 {
@@ -57,6 +60,19 @@ pull-and-deploy() {
       sfdx force:source:deploy -p $Data  
       spin-out;
     fi
+}
+
+deploy-feature() {
+
+    echo ${green} $'\n*** PROCESS STARTED ***\n' ${reset}
+    echo ${bold}$'FETCHING BRANCHES...' ${reset}
+    spin;
+    git fetch origin $master $1
+    git checkout $master
+    Data="$(git -C force-app/ diff --relative --name-only $master $1 | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
+    spin-out;
+    echo Data
+    
 }
 
 "$@" 
