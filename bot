@@ -79,9 +79,7 @@ deploy-feature() {
     else
     spin;
     echo ${bold} $'STARTING DEPLOY\n' ${reset}
-    sfdx force:source:deploy -p 'force-app/main/default/'
-    git checkout $1
-    sfdx force:source:deploy -p $Data  
+    sfdx force:source:deploy -p 'force-app/main/default/' && git checkout $1 && sfdx force:source:deploy -p $Data  
     spin-out;
     fi
     else
