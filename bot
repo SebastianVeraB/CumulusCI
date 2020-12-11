@@ -68,6 +68,7 @@ deploy-feature() {
     echo ${bold}$'FETCHING BRANCHES...' ${reset}
     spin;
     git fetch origin $master $1
+    git pull $master $1
     git checkout $master
     Data="$(git -C force-app/ diff --relative --name-only $master $1 | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
     spin-out;
