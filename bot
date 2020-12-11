@@ -68,11 +68,7 @@ deploy-feature() {
     echo ${bold}$'FETCHING BRANCHES...' ${reset}
     MyBranch=$(git branch | grep -e "^*" | cut -d' ' -f 2)
     spin;
-    if [ $MyBranch != $master ]
-    then
-      git checkout $master
-    fi
-    git pull && git checkout $1 && git pull
+    git checkout $1 && git pull && git checkout $master && git pull
     Data="$(git -C force-app/ diff --relative --name-only $master $1 | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
     spin-out;
     if [ -z "$Data" ]
@@ -81,6 +77,8 @@ deploy-feature() {
     else
     spin;
     echo ${bold} $'STARTING DEPLOY\n' ${reset}
+    sfdx force:source:deploy -p 'force-app/main/default/'
+    git checkout $1
     sfdx force:source:deploy -p $Data  
     spin-out;
     fi
