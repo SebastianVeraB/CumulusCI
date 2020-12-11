@@ -66,8 +66,14 @@ deploy-feature() {
 
     echo ${green} $'\n*** PROCESS STARTED ***\n' ${reset}
     echo ${bold}$'FETCHING BRANCHES...' ${reset}
+    MyBranch=$(git branch | grep -e "^*" | cut -d' ' -f 2)
     spin;
-    git fetch origin $master $1 && echo ${bold}$'PULLING...' ${reset} && git pull $master && git pull $1 && git checkout $master
+    if [ $MyBranch != $master ]
+    then
+      git checkout $master
+    else
+    fi
+    git pull && git checkout $1 && git pull
     Data="$(git -C force-app/ diff --relative --name-only $master $1 | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
     spin-out;
     echo Data
