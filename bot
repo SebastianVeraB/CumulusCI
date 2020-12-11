@@ -75,7 +75,7 @@ deploy-feature() {
     git pull && git checkout $1 && git pull
     Data="$(git -C force-app/ diff --relative --name-only $master $1 | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
     spin-out;
-    echo Data
+    echo $Data
     
 }
 
