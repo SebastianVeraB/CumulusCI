@@ -75,8 +75,15 @@ deploy-feature() {
     git pull && git checkout $1 && git pull
     Data="$(git -C force-app/ diff --relative --name-only $master $1 | perl -p -e 's/main/force-app\/main/' | perl -p -e 's/\n/,/' | sed 's/.$//' )"
     spin-out;
-    echo $Data
-    
+    if [ -z "$Data" ]
+    then
+      echo ${bold} $'already up to date\n' ${reset}
+    else
+    spin;
+    echo ${bold} $'STARTING DEPLOY\n' ${reset}
+    sfdx force:source:deploy -p $Data  
+    spin-out;
+    fi
 }
 
 "$@" 
